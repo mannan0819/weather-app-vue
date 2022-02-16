@@ -29,7 +29,16 @@ export default {
     <v-main>
       <Search @loc-set="locationSet"/>
       <Current :location="location" />
-      <!-- <HelloWorld/> -->
+      <!-- <HelloWold/> -->
     </v-main>
   </v-app>
 </template>
+
+<style scoped>
+.v-main {
+  font-family: Roboto, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+    
+   
+}
+</style>

@@ -1,8 +1,17 @@
 <template>
-  <div>
-    The Location is: {{ location }}
-    <p v-if="weather && weather.current">{{ weather.current.temp_c }}</p>
-  </div>
+    <v-container class="mt-n7" v-if="weather && weather.current">
+        <h2>{{weather.location.name}}, {{weather.location.region}}, {{weather.location.country}}</h2>
+    <v-container class="mt-n3 ml-n1">
+        <v-container class="mt-n4 ml-n4">Updated on {{weather.current.last_updated}}</v-container>
+        <v-container class="mt-n2">Wind: {{weather.current.wind_kph}}</v-container>
+        <v-container class="mt-n7">Humidity: {{weather.current.humidity}}</v-container>
+        <v-container class="mt-n7">Gust: {{weather.current.gust_kph}}</v-container>
+        <v-container class="mt-n7">Precip: {{weather.current.precip_mm}}</v-container>
+        <v-container class="mt-n7">Pressure: {{weather.current.pressure_mb}}</v-container>
+    </v-container>
+    
+        {{ weather.current.temp_c }}
+    </v-container>
 </template>
 
 <script>
@@ -20,7 +29,6 @@ export default {
     location(loc) {
       this.weather = this.getWeather(loc);
       console.log("weather: " + this.weather);
-    //   console.log(this.weather.current);
     },
   },
   methods: {
