@@ -1,28 +1,35 @@
-<template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
-</template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Search from "./components/Search.vue";
+import Current from "./components/Current.vue";
 export default {
-  name: 'App',
+  name: "App",
+
   components: {
-    HelloWorld
+    Search,
+    Current
+  },
+
+  data(){
+    return {
+      location:""
+    }
+  },
+  methods:{
+    locationSet(loc){
+      console.log(loc)
+      this.location = loc
+    }
   }
-}
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+
+<template>
+  <v-app>
+    <v-main>
+      <Search @loc-set="locationSet"/>
+      <Current :location="location" />
+      <!-- <HelloWorld/> -->
+    </v-main>
+  </v-app>
+</template>
